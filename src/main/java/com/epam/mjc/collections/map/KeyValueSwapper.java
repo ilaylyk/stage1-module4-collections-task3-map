@@ -5,6 +5,10 @@ import java.util.Map;
 
 public class KeyValueSwapper {
     public Map<String, Integer> swap(Map<Integer, String> sourceMap) {
-        return new HashMap<>();
+        Map<String, Integer> map = new HashMap<>();
+        for (Map.Entry<Integer, String> e : sourceMap.entrySet()) {
+            map.put(e.getValue(), e.getKey());
+        }
+        return map;
     }
 }

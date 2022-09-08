@@ -7,10 +7,19 @@ import java.util.Map;
 public class FunctionValueFinder {
     public boolean isFunctionValuePresent(List<Integer> sourceList, int requiredValue) {
         Map<Integer, Integer> functionMap = calculateFunctionMap(sourceList);
-        return true;
+        for (Map.Entry<Integer, Integer> e : functionMap.entrySet()) {
+            if (e.getValue() == requiredValue) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private Map<Integer, Integer> calculateFunctionMap(List<Integer> sourceList) {
-        return new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
+        for (Integer i : sourceList) {
+            map.put(i, ((5 * i) + 2));
+        }
+        return map;
     }
 }
